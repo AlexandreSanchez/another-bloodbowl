@@ -13,7 +13,8 @@ import java.util.Map.Entry;
  * @author wdzt6311
  *
  */
-public class AbbSquare {
+public class AbbSquare extends AbbAbstractModel
+{
 	private FieldZones zoneType;
 	private AbbPlayer player;
 	private boolean ballPresent = false;

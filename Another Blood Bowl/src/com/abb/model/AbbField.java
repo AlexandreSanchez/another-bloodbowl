@@ -1,7 +1,5 @@
 package com.abb.model;
-import java.awt.Color;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 
@@ -11,7 +9,8 @@ import java.util.List;
  * @author wdzt6311
  *
  */
-public class AbbField {
+public class AbbField extends AbbAbstractModel
+{
 	private int LENGHT = 26;
 	private int HEIGHT = 15;
 	private int MINLENGHT = 0;

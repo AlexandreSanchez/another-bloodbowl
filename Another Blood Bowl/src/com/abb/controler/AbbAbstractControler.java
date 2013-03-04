@@ -3,10 +3,8 @@
  */
 package com.abb.controler;
 
-import java.util.ArrayList;
+import com.abb.model.AbbAbstractModel;
 
-import com.abb.observer.Observable;
-import com.abb.observer.Observer;
 
 /**
  * @author wdzt6311
@@ -15,5 +13,15 @@ import com.abb.observer.Observer;
 
 public abstract class AbbAbstractControler 
 {
+	private AbbAbstractModel model;
+	
+	public AbbAbstractControler(AbbAbstractModel model) 
+	{
+		this.model = model;		
+	}
 
+	public AbbAbstractModel getModel()
+	{
+		return model;
+	}
 }

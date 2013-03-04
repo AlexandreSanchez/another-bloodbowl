@@ -1,6 +1,6 @@
 package com.abb.view;
 
-import com.abb.controler.AbbBoardControler;
+import com.abb.controler.*;
 import com.abb.model.*;
 
 /**
@@ -18,7 +18,9 @@ public class AbbMain {
 	 */
 	public static void main(String[] args) 
 	{
-		AbbMatch model = new AbbMatch();
-		AbbBoardControler controler = new AbbBoardControler(model);
+		AbbAbstractModel model = new AbbMatch();
+		AbbAbstractControler controler = new AbbBoardControler(model);
+	    AbbBoardView board = new AbbBoardView(controler);
+	    model.addObserver(board);
 	}
 }

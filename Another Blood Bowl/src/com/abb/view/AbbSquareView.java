@@ -4,17 +4,13 @@
 package com.abb.view;
 
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import com.abb.controler.AbbAbstractControler;
-import com.abb.controler.AbbBoardControler;
-import com.abb.controler.SquareListener;
-import com.abb.model.AbbField;
+import com.abb.model.AbbAbstractModel;
 import com.abb.model.AbbSquare;
 import com.abb.model.FieldZones;
 import com.abb.observer.Observer;
@@ -25,11 +21,12 @@ import com.abb.observer.Observer;
  */
 public class AbbSquareView  extends JButton implements Observer
 {   
-    private AbbAbstractControler controler;
+    private AbbSquare model;
 
-    public AbbSquareView(AbbAbstractControler controler)
+    public AbbSquareView(AbbAbstractModel model)
 	{
-        this.controler = controler;                
+        this.model = (AbbSquare) model;   
+    	update();
 	}
 	
 	private Color getColorFromZoneType(FieldZones aZoneType)
@@ -63,34 +60,34 @@ public class AbbSquareView  extends JButton implements Observer
 	{
 		String txt = "";
 		Color col = getColorFromZoneType(model.getZoneType());
-//		if (model.isPlayerAvailable())
-//		{
-//			txt += model.getPlayer().getNumber();	
-//			if (model.getPlayer().getTeam() == 1)
-//			{
-//				col = Color.RED;
-//			}
-//			else
-//			{
-//				col = Color.BLUE;
-//			}
-//		}
-//		else
-//		{
-//			txt += model.getTackleZones(1);
-//			txt += "/";
-//			txt += model.getTackleZones(2);
-//			if (model.getTackleZones(1) != 0)
-//			{
-//				col = Color.YELLOW;
-//			}
-//		}
-//		if (model.isBallPresent())
-//		{
-//			txt += "B";
-//			col = Color.GREEN;
-//		}
-//
+		if (model.isPlayerAvailable())
+		{
+			txt += model.getPlayer().getNumber();	
+			if (model.getPlayer().getTeam() == 1)
+			{
+				col = Color.RED;
+			}
+			else
+			{
+				col = Color.BLUE;
+			}
+		}
+		else
+		{
+			txt += model.getTackleZones(1);
+			txt += "/";
+			txt += model.getTackleZones(2);
+			if (model.getTackleZones(1) != 0)
+			{
+				col = Color.YELLOW;
+			}
+		}
+		if (model.isBallPresent())
+		{
+			txt += "B";
+			col = Color.GREEN;
+		}
+
 		setText(txt);
 		setBackground(col);
 		setMargin(new Insets(0,0,0,0));

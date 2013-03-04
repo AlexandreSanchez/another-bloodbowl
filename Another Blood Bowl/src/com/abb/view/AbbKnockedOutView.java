@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 
 import com.abb.controler.AbbAbstractControler;
 import com.abb.controler.AbbBoardControler;
+import com.abb.model.AbbAbstractModel;
 import com.abb.model.AbbDugouts;
 
 /**
@@ -20,14 +21,14 @@ import com.abb.model.AbbDugouts;
  */
 public class AbbKnockedOutView extends JPanel 
 {
-    private AbbAbstractControler controler;
+    private AbbDugouts model;
 
     private int LENGHT = 3;
 	private int HEIGHT = 5;
 
-	public AbbKnockedOutView(AbbAbstractControler controler)
+	public AbbKnockedOutView(AbbAbstractModel model)
 	{
-        this.controler = controler;                
+        this.model = (AbbDugouts) model;                
 	    this.setLayout(new GridLayout(HEIGHT, LENGHT));
 	    this.update();
 	}

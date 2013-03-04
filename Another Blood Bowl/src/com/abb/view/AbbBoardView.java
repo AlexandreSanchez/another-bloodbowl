@@ -35,10 +35,11 @@ public class AbbBoardView extends JFrame implements Observer
     private AbbDugoutsView dugoutsAway;
 
     public AbbBoardView(AbbAbstractControler controler)
-    {          
-        field = new AbbFieldView(controler);
-        dugoutsHome = new AbbDugoutsView(controler);
-        dugoutsAway = new AbbDugoutsView(controler);
+    {         
+    	AbbMatch model = (AbbMatch) controler.getModel();
+        field = new AbbFieldView(model);
+        dugoutsHome = new AbbDugoutsView(model.getTeamHome().getDugouts());
+        dugoutsAway = new AbbDugoutsView(model.getTeamAway().getDugouts());
 
         this.setSize(1000, 450);
         this.setTitle("Another Blood Bowl");

@@ -9,7 +9,8 @@ import java.util.ArrayList;
  * @author wdzt6311
  *
  */
-public class AbbDugouts {
+public class AbbDugouts extends AbbAbstractModel
+{
 	private ArrayList<AbbPlayer> reserves = new ArrayList<AbbPlayer>();
 	private ArrayList<AbbPlayer> knockedOut = new ArrayList<AbbPlayer>();
 	private ArrayList<AbbPlayer> deadAndInjuried = new ArrayList<AbbPlayer>();

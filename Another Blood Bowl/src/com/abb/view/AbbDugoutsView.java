@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import com.abb.controler.AbbAbstractControler;
 import com.abb.controler.AbbBoardControler;
+import com.abb.model.AbbAbstractModel;
 import com.abb.model.AbbDugouts;
 
 /**
@@ -17,19 +18,19 @@ import com.abb.model.AbbDugouts;
  */
 public class AbbDugoutsView  extends JPanel
 {
-    private AbbAbstractControler controler;
+    private AbbDugouts model;
 
     private AbbReservesView reserves;
     private AbbKnockedOutView knockedOut;
     private AbbDeadAndInjuriedView deadAndInjuried;
 
-	public AbbDugoutsView(AbbAbstractControler controler)
+	public AbbDugoutsView(AbbAbstractModel model)
 	{
-        this.controler = controler;                
+        this.model = (AbbDugouts) model;                
 
-        reserves = new AbbReservesView(controler);
-		knockedOut = new AbbKnockedOutView(controler);
-		deadAndInjuried = new AbbDeadAndInjuriedView(controler);
+        reserves = new AbbReservesView(model);
+		knockedOut = new AbbKnockedOutView(model);
+		deadAndInjuried = new AbbDeadAndInjuriedView(model);
 		
 		this.setLayout(new BorderLayout());
     	this.add(reserves, BorderLayout.NORTH);
